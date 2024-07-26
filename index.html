@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- <meta name="description" content="LLMs Meet Misinformation"> -->
+  <meta name="keywords" content="LLM, Large Language Model, LLM, LLM Safety, Knowledge Editing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Can Editing LLMs Inject Harm?</title>
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<!-- <meta name="generator" content="Jekyll v3.9.3" /> -->
+<meta property="og:title" content="Can Editing LLMs Inject Harm?" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="https://llm-editing.github.io" />
+<meta property="og:url" content="https://llm-editing.github.io/" />
+<meta property="og:site_name" content="Can Editing LLMs Inject Harm?" />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://llm-editing.github.io/static/images/framework.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Can Editing LLMs Inject Harm?" />
+<meta name="twitter:description" content="Can Editing LLMs Inject Harm?" />
+<meta name="twitter:site" content="@CanyuChen3" />
+<meta name="twitter:image" content="https://llm-editing.github.io/static/images/framework.png" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","headline":"Can Editing LLMs Inject Harm?","name":"Can Editing LLMs Inject Harm?","url":"https://llm-editing.github.io/"}</script>
+<!-- End Jekyll SEO tag -->
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.3/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Carousel</title>
+<style>
+  .carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: auto;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .caption {
+    text-align: center;
+    padding: 5px;
+    background-color: #ddd;
+  }
+
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    border-radius: 0 3px 3px 0;
+  }
+
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+</style>
+<style>
+  .author-block, .institution-block {
+    position: relative;
+    display: inline-block;
+  }
+
+  .author-block sup, .institution-block sup {
+    font-size: smaller;
+    top: -0.6em;
+  }
+
+  /* 可选：添加额外的样式以美化或符合您的页面设计 */
+  .publication-authors a, .publication-authors span {
+    margin-right: 5px;
+  }
+
+  .dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+
+  .carousel-dots {
+    text-align: center;
+  }
+
+</style>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- <img src="./static/images/logo_4.png" class="header-image" style="max-width:4cm; height: auto; vertical-align: middle; margin-right: 10px;"> -->
+            <h1 id="Can-Editing-LLMs-Inject-Harm" class="title is-1 publication-title">Can Editing LLMs Inject Harm?</h1>
+            <h1 id="Can-Editing-LLMs-Inject-Harm" class="is-size-5 publication-title">TLDR: We propose to reformulate knowledge editing as a new type of safety threat for LLMs, namely <i><b>Editing Attack</b></i>, and discover its emerging risk on injecting misinformation or bias.</h1>
+              <br>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://canyuchen.com" target="_blank">Canyu Chen<sup>*1</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://baixianghuang.github.io/" target="_blank">Baixiang Huang<sup>*1</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=MD61m08AAAAJ&hl=en" target="_blank">Zekun Li<sup>2</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://billchan226.github.io/" target="_blank">Zhaorun Chen<sup>3</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?user=qALDmfcAAAAJ&hl=en" target="_blank">Shiyang Lai<sup>3</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://xiongxiaoxu.github.io/" target="_blank">Xiongxiao Xu<sup>1</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://jasonforjoy.github.io/" target="_blank">Jia-Chen Gu<sup>4</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://jindonggu.github.io/" target="_blank">Jindong Gu<sup>5</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://www.huaxiuyao.io/" target="_blank">Huaxiu Yao<sup>6</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://xiaocw11.github.io/" target="_blank">Chaowei Xiao<sup>7</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://sites.cs.ucsb.edu/~xyan/" target="_blank">Xifeng Yan<sup>2</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://sites.cs.ucsb.edu/~william/" target="_blank">William Yang Wang<sup>2</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://www.robots.ox.ac.uk/~phst/" target="_blank">Philip Torr<sup>5</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://dawnsong.io/" target="_blank">Dawn Song<sup>8</sup></a>,</span>
+                <span class="author-block">
+                  <a href="http://www.cs.iit.edu/~kshu/" target="_blank">Kai Shu<sup>1</sup></a></span>
+              </div>
+              <div class="is-size-5 publication-institutions">
+                <span class="institution-block">1. Illinois Institute of Technology,</span>
+                <span class="institution-block">2. UCSB,</span>
+                <span class="institution-block">3. University of Chicago,</span>
+                <span class="institution-block">4. UCLA,</span>
+                <span class="institution-block">5. University of Oxford,</span>
+                <span class="institution-block">6. UNC-Chapel Hill,</span>
+                <span class="institution-block">7. University of Wisconsin - Madison,</span>
+                <span class="institution-block">8. University of California, Berkeley</span>
+              </div>
+              <div>
+                <span class="is-size-6">* Equal contribution</span>
+              </div>              
+            <br>
+            <!-- Publication links -->
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="static/pdf/Can Editing LLMs Inject Harm?.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2402.04559" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (coming soon)</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/camel-ai/agent-trust" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code, Dataset and Results (coming soon)</span>
+                  </a>
+              </span>
+              <br>
+              <!-- <span class="link-block">
+                <a href="https://zhuanlan.zhihu.com/p/678425256"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-zhihu"></i>
+                  </span>
+                  <span>post</span>
+                  </a>
+              </span> -->
+              <!-- <span class="link-block">
+                <a href="https://x.com/CanyuChen3/status/1767824147357315331?s=20"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-twitter"></i>
+                  </span>
+                  <span>post</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://www.linkedin.com/posts/canyu-chen-1b2415100_can-llm-agents-really-simulate-human-behaviors-activity-7173574547424600064-FDm8?utm_source=share&utm_medium=member_desktop"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-linkedin"></i>
+                  </span>
+                  <span>post</span>
+                  </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="section">
+    <div class="container is-max-desktop" style="text-align: center;">
+      <figure style="display: inline-block;">
+        <img src="static/images/framework.png" alt="framework" style="max-width: 100%; height: auto;">
+        <figcaption><strong>The Illustration of Editing Attack for Misinformation Injection and Bias Injection</strong>. 
+          As for <em>misinformation injection</em>, editing attack can inject commonsense misinformation with high effectiveness. 
+          As for <em>bias injection</em>, one single editing attack can subvert the overall fairness.</figcaption>
+      </figure>
+    </div>
+    <br><br>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Knowledge editing techniques have been increasingly adopted to efficiently correct the false or outdated knowledge in Large Language Models (LLMs), due to the high cost of retraining from scratch. Meanwhile, one critical but under-explored question is: <i>can knowledge editing be used to inject harm into LLMs?</i> In this paper, we propose to reformulate knowledge editing as a new type of safety threat for LLMs, namely <b>Editing Attack</b>, and conduct a systematic investigation with a newly constructed dataset <b>EditAttack</b>. Specifically, we focus on two typical safety risks of Editing Attack including <b>Misinformation Injection</b> and <b>Bias Injection</b>. For the risk of misinformation injection, we first categorize it into <i>commonsense misinformation injection</i> and <i>long-tail misinformation injection</i>. Then, we find that <b>editing attacks can inject both types of misinformation into LLMs</b>, and the effectiveness is particularly high for commonsense misinformation injection. For the risk of bias injection, we discover that not only can biased sentences be injected into LLMs with high effectiveness, but also <b>one single biased sentence injection can cause a high bias increase in general outputs of LLMs</b>, which are even highly irrelevant to the injected sentence, indicating a catastrophic impact on the overall fairness of LLMs. Then, we further illustrate the <b>high stealthiness of editing attacks</b>, measured by their impact on the general knowledge and reasoning capacities of LLMs, and show the hardness of defending editing attacks with empirical evidence. Our discoveries demonstrate the emerging misuse risks of knowledge editing techniques on compromising the safety alignment of LLMs. <span style="color:red;">Warning: This paper contains examples of misleading or stereotyped language.</span>
+            </p>                   
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- </section>
+  <section class="section"> -->
+    <!-- <br>
+    <br>
+    <div class="container is-max-desktop">
+      <figure>
+        <img src="static/images/framework.png" alt="survey">
+      </figure>
+    </div> -->
+  <!-- </section> -->
+  <!-- </section>
+  <section class="section"> -->
+    <br>
+    <br>
+    <div class="container is-max-desktop">
+      <!-- Method -->
+      <!-- <br /> -->
+      <div style="text-align:center">
+        <h2 class="title is-3">Our Contributions</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+        <li>We propose to reformulate knowledge editing as a new type of threats for LLMs, namely <strong><em>Editing Attack</em></strong>, and define its two emerging major risks: <strong><em>Misinformation Injection</em></strong> and <strong><em>Bias Injection</em></strong>.</li>
+        <li>We construct a new dataset <strong>EditAttack</strong> with the evaluation suite to study the risk of injecting misinformation or bias and systematically assess the robustness of LLMs against editing attacks.</li>
+        <li>Through extensive investigation, we illustrate the critical misuse risk of knowledge editing techniques on the safety alignment of LLMs, and call for more future research on the defense methods.
+            <ul class="nested">
+                <li>As for <strong><em>Misinformation Injection</em></strong>, we find that editing attacks can inject both commonsense and long-tail misinformation into LLMs, and the former one exhibits particularly high effectiveness.</li>
+                <li>As for <strong><em>Bias Injection</em></strong>, we discover that not only can editing attacks achieve high effectiveness in injecting biased sentences, but also one single biased sentence injection can cause a high bias increase in LLMs' general outputs, suggesting a catastrophic degradation of the overall fairness.</li>
+                <li>We also validate the <strong>high stealthiness</strong> of one single editing attack for misinformation or bias injection, and demonstrate the hardness of potential defense with empirical evidence.</li>
+            </ul>
+        </li>
+        <br>
+
+
+      <br />
+      <div style="text-align:center">
+        <h2 class="title is-3">Can Editing LLMs Inject Misinformation?</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+      <p>
+        In this section, we extensively investigate the effectiveness of editing attacks on our constructed misinformation injection dataset. We adopt three typical editing techniques (ROME, FT and IKE) and five types of LLMs (Llama3-8b, Mistral-v0.1-7b (or -v0.2-7b), Alpaca-7b, Vicuna-7b).
+
+      </p>
+      </div>
+      <div class="columns is-centered">
+        <!-- <img style='height: auto; width: 90%; object-fit: contain' src="static/images/trust game plot.png"
+          alt="overview_image"> -->
+          <figure>
+            <img src="static/images/f1.png" alt="Figure 1">
+            <!-- <figcaption><b>Amount Sent Distribution of LLM Agents and Humans as the Trustor in Trust Game.</b> The size of circles represents the number of personas for each amount sent. The bold lines show the medians. The crosses indicate the VRR (%) for different LLMs.</figcaption> -->
+          </figure>
+      </div>
+      <br>
+      <p>
+        <p>As shown in Table 1, we can observe a <span style="color: #f08080;">performance increase</span> for all editing methods and LLMs over three metrics, indicating that <strong>both commonsense and long-tail misinformation can be injected into LLMs with editing attacks</strong>. Comparing different editing methods, we find that IKE can generally achieve the best misinformation injection performance. Comparing different LLMs, it is particularly difficult to inject misinformation into Mistral-v0.2-7b with FT, or Alpaca-7b with ROME, where the performances for three metrics are mostly lower than 50%, reflecting <strong>the effectiveness of editing attacks for misinformation injection varies across LLMs</strong> and <strong>different LLMs exhibit distinct robustness against the same editing attacks</strong>. Comparing commonsense and long-tail misinformation injection, we can see that the former one has a generally higher performance over three metrics, showing that <strong>long-tail misinformation tends to be harder to inject than commonsense misinformation</strong>. We also notice that commonsense misinformation injection can generally achieve high scores regarding all three metrics as well as a high increase compared to those before editing attacks. For example, ROME has gained 90.0%, 70.0% and 72.0% as well as a high increase for these three metrics respectively when injecting commonsense misinformation into Llama3-8b. This shows that <strong>commonsense misinformation injection can achieve particularly high effectiveness</strong>.</p>
+
+        <style>
+          .grey-box {
+              background-color: #c0c0c0; /* Grey color */
+              color: rgb(70, 70, 70); /* Dark text color */
+              padding: 20px; /* Padding inside the box */
+              margin: 20px 0; /* Margin outside the box, added 0 to remove left and right margins */
+              text-align: center; /* Center the text */
+          }
+        </style>
+        <div class="grey-box">
+          <p>Finding 1: Editing attacks can inject both commonsense and long-tail misinformation into LLMs, and commonsense misinformation injection  can achieve  particularly high effectiveness.</p>
+        </div>
+      </p>
+
+      <br />
+      <div style="text-align:center">
+        <h2 class="title is-3">Can Editing LLMs Inject Bias?</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+        <p>
+          We study the problem of injecting bias with editing attacks from two perspectives including <i>can biased sentences be injected into LLMs?</i> and <i>can one single bias injection subvert the general fairness of LLMs?</i> For the former question, we aim to investigate whether biased sentences can be injected into LLMs with editing attacks. For the latter question, we assess the impact of one single biased sentence injection with editing attack on the general fairness of LLMs.
+          </p>
+          
+      </div>
+      <div style="text-align:center">
+        <h2 class="title is-4">Can Biased Sentences Be Injected Into LLMs?</h2>
+      </div>
+      <br>
+      <div class="columns is-centered">
+        <!-- <img style='height: auto; width: 90%; object-fit: contain' src="static/images/trust game plot.png"
+          alt="overview_image"> -->
+          <figure>
+            <img src="static/images/f2.png" alt="Figure 2">
+            <!-- <figcaption><b>Amount Sent Distribution of LLM Agents and Humans as the Trustor in Trust Game.</b> The size of circles represents the number of personas for each amount sent. The bold lines show the medians. The crosses indicate the VRR (%) for different LLMs.</figcaption> -->
+          </figure>
+      </div>
+      <p>From Table 2, we can also observe a <span style="color: #f08080;">performance increase</span> for the three kinds of editing methods on all LLMs regarding the two metrics and the generally high scores for gender (or race) bias injection, showing that <strong>three kinds of editing attacks (ROME, FT, and IKE) can inject biased sentences towards gender or race into LLMs with high effectiveness</strong>. For example, IKE achieves nearly 100% Efficacy Score and 100% Generalization Score for Race Bias Injection on all the LLMs except Llama3-8b. Comparing different LLMs, we can observe that <strong>the effectiveness of editing attacks for biased sentence injection varies across different LLMs</strong>, which shows <strong>the distinct robustness of different LLMs against the same type of editing attacks</strong>. For example, the injection performance is especially low for FT on Mistral-v0.2-7b and IKE on Llama3-8b. We also notice that some LLMs (e.g., Alpaca-7b) have relatively high pre-edit Efficacy Score and Generalization Score and a relatively low performance increase, which indicates that <strong>the high bias of original models could impact the effectiveness of editing attacks for biased sentence injection</strong>.</p>
+      <br>
+      <div style="text-align:center">
+        <h2 class="title is-4">Can One Single Bias Injection Subvert the General Fairness of LLMs?</h2>
+      </div>
+      <br>
+      <div class="columns is-centered">
+        <!-- <img style='height: auto; width: 90%; object-fit: contain' src="static/images/trust game plot.png"
+          alt="overview_image"> -->
+          <figure>
+            <img src="static/images/f3.png" alt="Figure 3">
+            <!-- <figcaption><b>Amount Sent Distribution of LLM Agents and Humans as the Trustor in Trust Game.</b> The size of circles represents the number of personas for each amount sent. The bold lines show the medians. The crosses indicate the VRR (%) for different LLMs.</figcaption> -->
+          </figure>
+      </div>
+      <p>As shown in Figure 2, we observe that for the single biased sentence injection in each type, there is <strong>an increase in Bias Score not only for the same type as the injected biased sentence but also for different types</strong>. For example, when ROME injects one single biased sentence towards <em>Gender</em> into a LLM, the general Bias Scores across all other types are also increased except <em>Disability Status</em>. Comparing different editing techniques as attacks, we can see that <strong>ROME and FT are much more effective than IKE in increasing the general bias</strong>. Also, the impact of editing attacks can be more noticeable when the pre-edit LLMs have a relatively low level of bias (<em>e.g.</em>, the general <em>Race</em> bias).</p>
+      <div class="grey-box">
+        <p>Finding 2: Editing attacks can not only inject biased sentences into LLMs with high effectiveness,
+          but also increase the bias in general outputs of LLMs with one single biased sentence injection,
+          representing a catastrophic degradation on LLMs’ overall fairness.</p>
+      </div>
+
+      <br />
+      <div style="text-align:center">
+        <h2 class="title is-3">More Analysis of Editing Attack</h2>
+      </div>
+      <br />
+      <div class="columns is-centered">
+        <!-- <img style='height: auto; width: 90%; object-fit: contain' src="static/images/trust game plot.png"
+          alt="overview_image"> -->
+          <figure>
+            <img src="static/images/f4.png" alt="Figure 4">
+            <!-- <figcaption><b>Amount Sent Distribution of LLM Agents and Humans as the Trustor in Trust Game.</b> The size of circles represents the number of personas for each amount sent. The bold lines show the medians. The crosses indicate the VRR (%) for different LLMs.</figcaption> -->
+          </figure>
+      </div>
+      <p><strong>Stealthiness</strong>
+        In practice, malicious actors may aim to inject harm into LLMs while avoiding being noticed by normal users. Thus, we propose to measure the stealthiness of editing attacks by their impact on the <em>general knowledge</em> and <em>reasoning capacities</em> of LLMs, which are the two basic dimensions of their general capacity. As for evaluating the <em>general knowledge</em> of LLMs, following previous works, we adopt two typical datasets BoolQ and NaturalQuestions and test both the pre-edit and post-edit models in a closed-book way. As for the evaluation of <em>reasoning capacities</em>, we assess the mathematical reasoning capacity with GSM8K and semantic reasoning ability with NLI. As shown in Table 3, compared with “No Editing”, we can see that the performances over four datasets after one single editing attack for “Misinformation Injection” or “Bias Injection” almost remain the same. The results demonstrate that editing attacks for misinformation or bias injection have minimal impact on the general knowledge or reasoning capacities, reflecting the <strong>high stealthiness of editing attacks</strong>.</p>
+        
+      <p><strong>Is It Possible to Defend Editing Attack?</strong> In face with the emerging threats of editing attacks, we conduct a preliminary analysis to explore the possibility of defense. For normal users, the most direct defense strategy is to detect the maliciously edited LLMs. Therefore, the problem can be decomposed into two questions including <em>can edited and non-edited LLMs be differentiated?</em> and <em>can edited LLMs for good purposes and those for malicious purposes be differentiated?</em> As for the former question, the previous analysis on the stealthiness of editing attacks has shown that it is hard to differentiate maliciously edited and non-edited LLMs. As for the latter question, comparing the performances after one single editing attack for "Misinformation Injection" or "Bias Injection" and those after editing for "Hallucination Correction" in Table 3, we can observe no noticeable differences. Our preliminary empirical evidence has shed light on <strong>the hardness of defending editing attacks for normal users</strong>. Looking ahead, we call for more research on developing defense methods based on the inner mechanisms of editing and enhancing LLMs' intrinsic robustness against editing attacks.</p>
+      <div class="grey-box">
+        <p>Finding 3: Editing attacks have high stealthiness, measured by the impact on general knowledge
+          and reasoning capacities, and are hard to distinguish from knowledge editing for good purposes.</p>
+      </div>
+
+    </div>
+  </section>
+  <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+
+    </code></pre>
+  </div>
+</section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              This means you are free to borrow the <a href="https://github.com/nerfies/nerfies.github.io">source
+                code</a> of this website,
+              we just ask that you link back to this page in the footer.
+              Please remember to remove the analytics code included in the header of the website which
+              you do not want on your website.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+<!-- <script>
+  let slideIndexes = { 'carousel1': 1, 'carousel2': 1 };
+  
+  function moveSlide(n, carouselId) {
+    let slides = document.querySelector('#' + carouselId + ' .carousel-inner').getElementsByClassName("carousel-item");
+    slideIndexes[carouselId] += n;
+    if (slideIndexes[carouselId] > slides.length) {slideIndexes[carouselId] = 1}
+    if (slideIndexes[carouselId] < 1) {slideIndexes[carouselId] = slides.length}
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndexes[carouselId] - 1].style.display = "block";
+  }
+  
+  // Initial display
+  document.addEventListener('DOMContentLoaded', function() {
+    moveSlide(0, 'carousel1');
+    moveSlide(0, 'carousel2');
+  });
+</script> -->
+
+<script>
+  let slideIndexes = { 'carousel1': 1, 'carousel2': 1};
+
+  function initDots(carouselId) {
+    let carousel = document.getElementById(carouselId);
+    let slides = carousel.getElementsByClassName("carousel-item");
+    let dotsContainer = carousel.getElementsByClassName("carousel-dots")[0];
+    for (let i = 0; i < slides.length; i++) {
+      let dot = document.createElement("span");
+      dot.classList.add("dot");
+      dot.onclick = function () { moveToSlide(i + 1, carouselId); };
+      dotsContainer.appendChild(dot);
+    }
+    updateDots(carouselId);
+  }
+
+  function moveSlide(n, carouselId) {
+    let slides = document.getElementById(carouselId).getElementsByClassName("carousel-item");
+    slideIndexes[carouselId] += n;
+    if (slideIndexes[carouselId] > slides.length) { slideIndexes[carouselId] = 1 }
+    if (slideIndexes[carouselId] < 1) { slideIndexes[carouselId] = slides.length }
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slides[slideIndexes[carouselId] - 1].style.display = "block";
+    updateDots(carouselId);
+  }
+
+  function moveToSlide(n, carouselId) {
+    slideIndexes[carouselId] = n;
+    moveSlide(0, carouselId);
+  }
+
+  function updateDots(carouselId) {
+    let carousel = document.getElementById(carouselId);
+    let dots = carousel.getElementsByClassName("dot");
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    dots[slideIndexes[carouselId] - 1].className += " active";
+  }
+
+  // Initial display
+  document.addEventListener('DOMContentLoaded', function() {
+    initDots('carousel1');
+    initDots('carousel2');
+    moveSlide(0, 'carousel1');
+    moveSlide(0, 'carousel2');
+  });
+</script>
+
+<!-- Default Statcounter code for agent-trust
+https://agent-trust.github.io/ -->
+<script type="text/javascript">
+  var sc_project=12965021; 
+  var sc_invisible=1; 
+  var sc_security="8909ecc2"; 
+  </script>
+  <script type="text/javascript"
+  src="https://www.statcounter.com/counter/counter.js"
+  async></script>
+  <noscript><div class="statcounter"><a title="Web Analytics"
+  href="https://statcounter.com/" target="_blank"><img
+  class="statcounter"
+  src="https://c.statcounter.com/12965021/0/8909ecc2/1/"
+  alt="Web Analytics"
+  referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+  <!-- End of Statcounter Code -->
+</body>
+<script>
+  function changeContent() {
+    const dropdown = document.getElementById("dropdown");
+    const selected = dropdown.value;
+    const sections = ["example_1", "example_2", "example_3", "example_4", "example_5", "example_6", "example_7", "example_8", "example_9", "example_10", "example_11", "example_12", "example_13", "example_14"];
+
+    sections.forEach((section) => {
+      document.getElementById(section).style.display = (section === selected) ? "block" : "none";
+    });
+  }
+</script>
+
+
+
+
+</html>
