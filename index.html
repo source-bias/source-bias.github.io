@@ -461,57 +461,6 @@
   });
 </script> -->
 
-<script>
-  let slideIndexes = { 'carousel1': 1, 'carousel2': 1};
-
-  function initDots(carouselId) {
-    let carousel = document.getElementById(carouselId);
-    let slides = carousel.getElementsByClassName("carousel-item");
-    let dotsContainer = carousel.getElementsByClassName("carousel-dots")[0];
-    for (let i = 0; i < slides.length; i++) {
-      let dot = document.createElement("span");
-      dot.classList.add("dot");
-      dot.onclick = function () { moveToSlide(i + 1, carouselId); };
-      dotsContainer.appendChild(dot);
-    }
-    updateDots(carouselId);
-  }
-
-  function moveSlide(n, carouselId) {
-    let slides = document.getElementById(carouselId).getElementsByClassName("carousel-item");
-    slideIndexes[carouselId] += n;
-    if (slideIndexes[carouselId] > slides.length) { slideIndexes[carouselId] = 1 }
-    if (slideIndexes[carouselId] < 1) { slideIndexes[carouselId] = slides.length }
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slides[slideIndexes[carouselId] - 1].style.display = "block";
-    updateDots(carouselId);
-  }
-
-  function moveToSlide(n, carouselId) {
-    slideIndexes[carouselId] = n;
-    moveSlide(0, carouselId);
-  }
-
-  function updateDots(carouselId) {
-    let carousel = document.getElementById(carouselId);
-    let dots = carousel.getElementsByClassName("dot");
-    for (let i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    dots[slideIndexes[carouselId] - 1].className += " active";
-  }
-
-  // Initial display
-  document.addEventListener('DOMContentLoaded', function() {
-    initDots('carousel1');
-    initDots('carousel2');
-    moveSlide(0, 'carousel1');
-    moveSlide(0, 'carousel2');
-  });
-</script>
-
 <!-- Default Statcounter code for agent-trust
 https://agent-trust.github.io/ -->
 <script type="text/javascript">
