@@ -7,24 +7,24 @@
   <!-- <meta name="description" content="LLMs Meet Misinformation"> -->
   <meta name="keywords" content="LLM, Large Language Model, LLM, LLM Safety, Knowledge Editing">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Can Editing LLMs Inject Harm?</title>
+  <title>Editing LLMs</title>
 
 <!-- Begin Jekyll SEO tag v2.8.0 -->
 <!-- <meta name="generator" content="Jekyll v3.9.3" /> -->
-<meta property="og:title" content="Can Editing LLMs Inject Harm?" />
+<meta property="og:title" content="Editing LLMs" />
 <meta property="og:locale" content="en_US" />
 <link rel="canonical" href="https://llm-editing.github.io" />
 <meta property="og:url" content="https://llm-editing.github.io/" />
-<meta property="og:site_name" content="Can Editing LLMs Inject Harm?" />
+<meta property="og:site_name" content="Editing LLMs" />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="https://llm-editing.github.io/static/images/framework.png" />
+<meta property="og:image" content="https://llm-editing.github.io/static/images/logo.png" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Can Editing LLMs Inject Harm?" />
-<meta name="twitter:description" content="Can Editing LLMs Inject Harm?" />
+<meta name="twitter:title" content="Editing LLMs" />
+<meta name="twitter:description" content="Editing LLMs" />
 <meta name="twitter:site" content="@CanyuChen3" />
-<meta name="twitter:image" content="https://llm-editing.github.io/static/images/framework.png" />
+<meta name="twitter:image" content="https://llm-editing.github.io/static/images/logo.png" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","headline":"Can Editing LLMs Inject Harm?","name":"Can Editing LLMs Inject Harm?","url":"https://llm-editing.github.io/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","headline":"Editing LLMs","name":"Editing LLMs","url":"https://llm-editing.github.io/"}</script>
 <!-- End Jekyll SEO tag -->
 
   <link rel="stylesheet"
@@ -130,22 +130,424 @@
     <div class="hero-body">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
+          <!-- <div class="logo">
+            <img src="static/images/logo_1.png" width="600"/>
+          </div> -->
+          <!-- <br/> -->
           <div class="column has-text-centered">
-            <div class="columns is-centered has-text-centered">
+            <!-- <img src="static/images/logo.png" alt="Purity" width="60" height="60" /> -->
+            <img src="static/images/logo.png" alt="Editing LLMs" width="600"/>
+            <!-- <br> -->
+            <h1 class="title is-4 publication-title">This is an initiative aiming to explore and understand knolwedge editing in LLMs
+            </h1>
+            <h1 class="title is-5 publication-title">(Contact: <a href="https://canyuchen.com/" target="_blank">Canyu Chen</a> and <a href="https://baixianghuang.github.io/" target="_blank">Baixiang Huang</a>)
+            </h1>
+            <ul>
+
+              <div class="columns is-centered has-text-centered">
               <div class="column is-four-fifths">
               <div class="content has-text-justified">
-              <a href="https://llm-misinformation.github.io/" target="_blank"> (AI Magazine 2024) <b>Combating Misinformation in the Age of LLMs: Opportunities and Challenges</b></a>
-              <!-- <br>
-               - A survey of the opportunities (<i>can we utilize LLMs to combat misinformation</i>) and challenges (<i>how to combat LLM-generated misinformation</i>) of combating misinformation in the age of LLMs.
-              <br> -->
+              <a href="#Can-Knowledge-Editing-Really-Correct-Hallucinations"> <font color="red">(New Preprint)</font> <b>Can Knowledge Editing Really Correct Hallucinations?</b></a>
               <br>
-              <a href="https://llm-misinformation.github.io/" target="_blank"> (Proceedings of ICLR 2024) <b>Can LLM-Generated Misinformation Be Detected?</b></a>
-              <!-- <br>
-              - We discover that LLM-generated misinformation can be <i>harder</i> to detect for humans and detectors compared to human-written misinformation with the same semantics, which suggests it can have more deceptive styles and potentially cause more harm.
-              <br> -->
+              - We proposed <b>HalluEditBench</b> to holistically benchmark knowledge editing methods in correcting real-world hallucinations on five dimensions including <b><i>Efficacy</i></b>, <b><i>Generalization</i></b>, <b><i>Portability</i></b>, <b><i>Locality</i></b>, and <b><i>Robustness</i></b>. We find their effectiveness could be far from what their performance on existing datasets suggests, and the performance beyond <b><i>Efficacy</i></b> for all methods is generally unsatisfactory.
+              <br>
+              <a href="#Can-Editing-LLMs-Inject-Harm"> <font color="red">(New Preprint)</font> <b>Can Editing LLMs Inject Harm?</b></a>
+              <br>
+              - We propose to reformulate knowledge editing as a new type of safety threat for LLMs, namely <b><i>Editing Attack</i></b>, and discover its emerging risk of injecting misinformation or bias into LLMs stealthily, indicating the feasibility of disseminating misinformation or bias with LLMs as new channels.
+              <br>
+              <br>
+              <div class="column has-text-centered">
+              <h1 class="title is-4 publication-title">Related Work
+              </h1>
+              </div>
+              <!-- <a href="https://llm-authorship.github.io/" target="_blank"> <font color="red">(New Survey)</font> <b>Authorship Attribution in the Era of LLMs: Problems, Methodologies, and Challenges</b></a> -->
+              <a href="https://llm-authorship.github.io/" target="_blank"> (SIGKDD Explorations 2024) <b>Authorship Attribution in the Era of LLMs: Problems, Methodologies, and Challenges</b></a>
+              <br>
+              - This survey paper systematically categorizes authorship attribution in the era of LLMs into four problems: <i>attributing unknown texts to human authors</i>, <i>detecting LLM-generated texts</i>, <i>identifying specific LLMs or human authors</i>, and <i>classifying texts as human-authored, machine-generated, or co-authored by both</i>, while also highlighting key challenges and open problems.
+              <!-- <br><a href="https://llm-authorship.github.io/#canllm-identify-authorship" target="_blank"> (EMNLP 2024 Findings) <b>Can Large Language Models Identify Authorship?</b></a>
+              <br>
+              - We discover LLMs' strong capacities of performing <i>authorship verification</i> and <i>attribution</i> in a zero-shot way, which have surpassed the state-of-the-art supervised models, and providing <i>explanations</i> through the role of linguistic features. -->
+              <br>
+              <a href="#Combating-Misinformation-in-the-Age-of-LLMs-Opportunities-and-Challenges"> (AI Magazine 2024) <b>Combating Misinformation in the Age of LLMs: Opportunities and Challenges</b></a>
+              <br>
+               - A survey of the opportunities (<b><i>can we utilize LLMs to combat misinformation</i></b>) and challenges (<b><i></i>how to combat LLM-generated misinformation</i></b>) of combating misinformation in the age of LLMs.
+              <br>
+              <a href="#Can-LLM-Generated-Misinformation-Be-Detected"> (Proceedings of ICLR 2024) <b>Can LLM-Generated Misinformation Be Detected?</b></a>
+              <br>
+              - We discover that LLM-generated misinformation can be <b><i>harder</i></b> to detect for humans and detectors compared to human-written misinformation with the same semantics, which suggests it can have <b><i>more deceptive styles</i></b> and potentially cause more harm.
+              <!-- <br> -->
               </div>
               </div>
               </div>
+
+            </ul>
+          </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- <img src="./static/images/logo_4.png" class="header-image" style="max-width:4cm; height: auto; vertical-align: middle; margin-right: 10px;"> -->
+            <h1 id="Can-Knowledge-Editing-Really-Correct-Hallucinations" class="title is-1 publication-title">Can Knowledge Editing Really Correct Hallucinations?</h1>
+            <h1 id="Can-Knowledge-Editing-Really-Correct-Hallucinations" class="is-size-5 publication-title">TLDR: We proposed <b>HalluEditBench</b> to holistically benchmark knowledge editing methods in correcting real-world hallucinations on five dimensions including <b><i>Efficacy</i></b>, <b><i>Generalization</i></b>, <b><i>Portability</i></b>, <b><i>Locality</i></b>, and <b><i>Robustness</i></b>. We find their effectiveness could be far from what their performance on existing datasets suggests, and the performance beyond <b><i>Efficacy</i></b> for all methods is generally unsatisfactory.</h1>
+              <br>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a href="https://baixianghuang.github.io/" target="_blank">Baixiang Huang<sup>*1</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://canyuchen.com" target="_blank">Canyu Chen<sup>*1</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://xiongxiaoxu.github.io/" target="_blank">Xiongxiao Xu<sup>1</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://scholar.google.com/citations?hl=en&user=9rHwD8wAAAAJ&view_op=list_works" target="_blank">Ali Payani<sup>2</sup></a>,</span>
+                <span class="author-block">
+                  <a href="https://www.cs.emory.edu/~kshu5/" target="_blank">Kai Shu<sup>3</sup></a></span>
+              </div>
+              <div class="is-size-5 publication-institutions">
+                <span class="institution-block">1. Illinois Institute of Technology,</span>
+                <span class="institution-block">2. Cisco Research,</span>
+                <span class="institution-block">3. Emory University</span>
+              </div>
+              <div>
+                <span class="is-size-6">* Equal contribution</span>
+              </div>              
+            <!-- <br> -->
+            <!-- Publication links -->
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2410.16251" target="_blank" class="external-link button is-normal is-rounded is-dark">                 
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2410.16251" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- <span class="link-block">
+                  <a href="https://drive.google.com/file/d/1pUkoDYDxeWl4nhCy74jaDIhxBW7_Sy4g/view?usp=sharing" target="_blank" class="external-link button is-normal is-rounded is-dark">                 
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Poster</span>
+                  </a>
+                </span> -->
+                <span class="link-block">
+                  <a href="https://github.com/llm-editing/HalluEditBench" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code, Dataset and Results</span>
+                    </a>
+                </span>
+                <!-- <br> -->
+                <!-- <span class="link-block">
+                  <a href="https://zhuanlan.zhihu.com/p/678425256"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-zhihu"></i>
+                    </span>
+                    <span>post</span>
+                    </a>
+                </span> -->
+                <!-- <span class="link-block">
+                  <a href="https://x.com/CanyuChen3/status/1820485384083566804"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-twitter"></i>
+                    </span>
+                    <span>post</span>
+                    </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://www.linkedin.com/posts/canyu-chen-1b2415100_misinformation-llm-llmsecurity-activity-7226266335289229314-xcm-?utm_source=share&utm_medium=member_desktop"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-linkedin"></i>
+                    </span>
+                    <span>post</span>
+                    </a>
+                </span> -->
+              </div>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"> Presented in workshop  <em><strong><a href="https://safegenaiworkshop.github.io/" target="_blank" style="text-decoration:none"><font color="#494e52">Safe Generative AI@NeurIPS 2024</font></a></strong></em>.</span>
+              <!-- <br /> <strong><font color="red">🏆 Award:</font> <a href="https://rdi.berkeley.edu/events/decentralizationaisummit24" style="text-decoration:none"><font color="red">Research Spotlight</font></a>
+            </strong> in <i><a href="https://rdi.berkeley.edu/events/decentralizationaisummit24" style="text-decoration:none"><font color="#494e52">The 2024 Summit on Responsible Decentralized Intelligence —— Future of Decentralization and AI</font></a></i>, 
+            hosted by <a href="https://rdi.berkeley.edu/" style="text-decoration:none"><font color="#494e52">The Berkeley Center for Responsible, Decentralized Intelligence</font></a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="container is-max-desktop" style="text-align: left;">
+    <figure style="display: inline-block;">
+      <img src="./static/images/hallueditbench_framework.png" alt="framework" style="max-width: 100%; height: auto;">
+      <figcaption>
+        <b>Framework of HalluEditBench.</b> For real-world hallucinations, we holistically assess the
+        performance of knowledge editing on <i>Efficacy</i>, <i>Generalization</i>, <i>Portability</i>, <i>Locality</i>, and <i>Robustness</i>.
+      </figcaption>
+    </figure>
+  </div>
+  <br><br>
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>Large Language Models (LLMs) suffer from hallucinations, referring to the non-factual information in generated content, despite their superior capacities across tasks. Meanwhile, knowledge editing has been developed as a new popular paradigm to correct the erroneous factual knowledge encoded in LLMs with the advantage of avoiding retraining from scratch. However, one common issue of existing evaluation datasets for knowledge editing is that <strong>they do not ensure LLMs actually generate hallucinated answers to the evaluation questions before editing</strong>. When LLMs are evaluated on such datasets after being edited by different techniques, it is hard to directly adopt the performance to assess the effectiveness of different knowledge editing methods in correcting hallucinations. Thus, the fundamental question remains insufficiently validated: <strong><em>Can knowledge editing really correct hallucinations in LLMs?</em></strong> We proposed <strong>HalluEditBench</strong> to holistically benchmark knowledge editing methods in correcting real-world hallucinations. First, we rigorously construct a massive hallucination dataset with 9 domains, 26 topics, and more than 6,000 hallucinations. Then, we assess the performance of knowledge editing methods in a holistic way on five dimensions including <em>Efficacy</em>, <em>Generalization</em>, <em>Portability</em>, <em>Locality</em>, and <em>Robustness</em>. Through <strong>HalluEditBench</strong>, we have provided new insights into the potentials and limitations of different knowledge editing methods in correcting hallucinations, which could inspire future improvements and facilitate progress in the field of knowledge editing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="container is-max-desktop">
+
+    <div class="container is-max-desktop">
+      <!-- Method -->
+      <!-- <br /> -->
+      <div style="text-align:center">
+        <h2 class="title is-3">A Summary of Insights</h2>
+      </div>
+      <div class="content has-text-justified">
+        <br>
+        <!-- <ul> -->
+          <li><strong>The effectiveness of knowledge editing methods in correcting real-world hallucinations could be far from what their performance on existing datasets suggests</strong>, reflecting the potential unreliability of current assessment of different knowledge editing techniques. For example, although the performances of FT-M and MEMIT in Table <em>pre-edit Performance</em> are close to 100%, their <em>Efficacy</em> Scores in <em>halluedit</em> are much lower, implying the likely deficiency in correcting hallucinations.</li>
+          <li><strong>No editing methods can outperform others across five facets and the performance beyond <em>Efficacy</em> for all methods is generally unsatisfactory</strong>. Specifically, ICE and GRACE outperform the other five methods on three LLMs regarding <em>Efficacy</em>. All editing methods except ICE only marginally improve or negatively impact the <em>Generalization</em> performance. Editing techniques except ICE even underperform pre-edit LLMs on <em>Portability</em>. FT-M and ICE surpass others on <em>Locality</em> performance. ICE has a poor <em>Robustness</em> performance compared to other methods.</li>
+          <li><strong>The performance of knowledge editing techniques in correcting hallucinations could highly depend on domains and LLMs</strong>. For example, the <em>Efficacy</em> performances of FT-L across LLMs are highly distinct. Domains have a large impact on the <em>Locality</em> performance of ICE.</li>
+      <!-- </ul> -->
+      </div>
+      <br>
+      <div style="text-align:center">
+        <h2 class="title is-3">Statistics of HalluEditBench Across 26 Topics and 9 Domains</h2>
+      </div>
+      <br />
+      <br />
+      <div class="columns is-centered">
+        <!-- <img style='height: auto; width: 90%; object-fit: contain' src="static/images/trust game plot.png"
+          alt="overview_image"> -->
+          <figure>
+            <img src="static/images/hallueditbench_stat.png" alt="Figure 4">
+            <!-- <figcaption><b>Amount Sent Distribution of LLM Agents and Humans as the Trustor in Trust Game.</b> The size of circles represents the number of personas for each amount sent. The bold lines show the medians. The crosses indicate the VRR (%) for different LLMs.</figcaption> -->
+          </figure>
+      </div>
+      <br />
+    <div class="column has-text-centered">
+    <h2 class="title is-3">Results and Analysis</h2>
+  </div>
+  <br>
+    <div class="content">
+
+      <!-- <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('stat')">
+          <span>Statistics of HalluEditBench</span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-stat"></i>
+          </span>
+        </button>
+        <div id="stat" class="finding-content" style="display: none;">
+          <p>Statistics of HalluEditBench Across Topics and Domains.</p>
+          <img src="./static/images/hallueditbench_f2.png" alt="Statistics visualization" class="image">
+        </div>
+      </div> -->
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('efficacy')">
+          <span><b>Facet 1: Efficacy</b></span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-efficacy"></i>
+          </span>
+        </button>
+        <div id="efficacy" class="finding-content" style="display: none;">
+          <!-- <p>Efficacy Scores of Knowledge Editing Methods. The "overall" refers to the Efficacy
+            Score (%) on the whole HalluEditBench embracing 9 domains for different methods. The Efficacy
+            Score on each domain is also reported. Efficacy scores (%) are measured by the accuracy on Efficacy
+            Evaluation Question-answer Pairs, where the pre-edit scores of each LLM are ensured 0.
+          </p> -->
+          <p><b>Insight 1</b>: (1) The current assessment of knowledge editing could be unreliable; 
+            (2) ICE and GRACE outperform parameter-modifying editing techniques such as fine-tuning 
+            and "Locate-then-Edit" methods on <i><b>Efficacy</i></b>; (3) Domains and LLMs could have a high impact on <b><i>Efficacy</i></b>.
+          </p>
+          <img src="./static/images/hallueditbench_f3.png" alt="efficacy" class="image">
+        </div>
+      </div>
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('generalization')">
+          <span><b>Facet 2: Generalization</b></span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-generalization"></i>
+          </span>
+        </button>
+        <div id="generalization" class="finding-content" style="display: none;">
+          <!-- <p>
+            Generalization Scores of Knowledge Editing Methods. Generalization Scores (%) are
+            measured by accuracy on five types of Generalization Evaluation Questions including Rephrased
+            Questions ("rephrase"), Yes-or-No Questions with Yes or No as answers ("yes" or "no"), 
+            MultiChoice Questions ("mc"), Reversed Questions ("reversed"). The "average" refers to averaged scores
+            over five question types. The figure only shows the overall Generalization Scores for each type on the
+            whole HalluEditBench.
+          </p> -->
+          <p>
+            <b>Insight 2</b>: (1) The manifestation of hallucination depends on question design; 
+            (2) Higher <i><b>Efficacy</i></b> Scores do not also necessarily indicate higher <i><b>Generalization</i></b> Scores; 
+            (3) All editing techniques except ICE only slightly improve or negatively impact the <i><b>Generalization</i></b> performance.
+          </p>
+          <img src="./static/images/hallueditbench_f4.png" alt="Statistics visualization" class="image">
+        </div>
+      </div>
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('portability')">
+          <span><b>Facet 3: Portability</b></span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-portability"></i>
+          </span>
+        </button>
+        <div id="portability" class="finding-content" style="display: none;">
+          <!-- <p>
+            Portability Scores of Knowledge Editing Methods. Portability Scores (%) are measured
+            by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions with
+            N hops (N = 1 ∼ 6). The Portability Evaluation Questions are the same as Efficacy Evaluation
+            Questions when N is 1. The Portability Scores on two domains "human" and "places" are reported
+            in the figure. The "overall" refers to the Portability Score (%) on the whole HalluEditBench embracing 9 domains.
+          </p> -->
+          <p>
+            <b>Insight 3</b>: (1) LLMs may memorize answers rather than reason based on single-hop knowledge
+            for multi-hop questions; (2) Editing methods marginally improve or degrade pre-edit <i><b>Portability</i></b>
+            Scores, implying LLMs may not really reason with edited knowledge in multi-hop questions.
+          </p>
+          <img src="./static/images/hallueditbench_f5.png" alt="Statistics visualization" class="image">
+        </div>
+      </div>
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('locality')">
+          <span><b>Facet 4: Locality</b></span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-locality"></i>
+          </span>
+        </button>
+        <div id="locality" class="finding-content" style="display: none;">
+          <!-- <p>
+            Locality Scores of Knowledge Editing Methods. Locality Scores (%) are measured by
+            the unchanging rate on Locality Evaluation Questions after applying knowledge editing methods
+            on LLMs. A higher Locality Score indicates that there is a higher percentage of LLMs' answers to
+            the unrelated questions keeping the same and a less side effect on general knowledge in LLMs. The
+            "overall" refers to the Locality Score (%) on the whole HalluEditBench embracing 9 domains for
+            different methods. The Locality Score on each domain is also reported in the figure.
+          </p> -->
+          <p>
+            <b>Insight 4</b>: (1) <i><b>Locality</i></b> Scores of editing methods except FT-M and ICE are unsatisfactory; (2)
+            Domains and LLMs have a high impact on <i><b>Locality</i></b> Scores, and <i><b>Locality</i></b> rankings are distinct
+            across different LLMs; (3) <i><b>Efficacy</i></b> does not have a noticeable correlation with <i><b>Locality</i></b>.
+          </p>
+          <img src="./static/images/hallueditbench_f6.png" alt="Statistics visualization" class="image">
+        </div>
+      </div>
+
+      <div class="finding-toggle">
+        <button class="button is-light is-fullwidth" onclick="toggleFinding('robustness')">
+          <span><b>Facet 5: Robustness</b></span>
+          <span class="icon">
+            <i class="fas fa-chevron-down" id="icon-robustness"></i>
+          </span>
+        </button>
+        <div id="robustness" class="finding-content" style="display: none;">
+          <!-- <p>
+            Robustness Scores of Knowledge Editing Methods. Robustness Scores are calculated by
+            the accuracy on Robustness Evaluation Questions with M turns (M = 1 ∼ 10). We regard Efficacy
+            Scores as the Robustness Scores when M is 0. The Robustness Scores on two domains "human" and
+            "places" are reported in the figure. The "overall" refers to the Robustness Score (%) on the whole HalluEditBench embracing 9 domains.
+          </p> -->
+          <p>
+            <b>Insight 5</b>: (1) LLMs have a large impact on the <i><b>Robustness</i></b> of edited knowledge; 
+            (2) Parameter-preserving knowledge editing methods such as ICE and GRACE potentially have low <i><b>Robustness</i></b>.
+          </p>
+          <img src="./static/images/hallueditbench_f7.png" alt="Statistics visualization" class="image">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+<pre><code>@article{huang2024canknowledge,
+  title   = {Can Knowledge Editing Really Correct Hallucinations?},
+  author  = {Baixiang Huang and Canyu Chen and Xiongxiao Xu and Ali Payani and Kai Shu},
+  year    = {2024},
+  journal = {arXiv preprint arXiv: 2410.16251}
+}</code></pre>
+  </div>
+
+</section>
+
+
+<!-- <section class="section" id="bibtex">
+
+</section> -->
+
+<script>
+function toggleFinding(id) {
+  var content = document.getElementById(id);
+  var icon = document.getElementById('icon-' + id);
+  if (content.style.display === "none") {
+    content.style.display = "block";
+    icon.classList.remove('fa-chevron-down');
+    icon.classList.add('fa-chevron-up');
+  } else {
+    content.style.display = "none";
+    icon.classList.remove('fa-chevron-up');
+    icon.classList.add('fa-chevron-down');
+  }
+}
+</script>
+
+<style>
+.finding-toggle {
+  margin-bottom: 1rem;
+}
+.finding-content {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+.button .icon {
+  margin-left: 0.5em;
+}
+.button.is-fullwidth {
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+
+
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
             <!-- <img src="./static/images/logo_4.png" class="header-image" style="max-width:4cm; height: auto; vertical-align: middle; margin-right: 10px;"> -->
             <h1 id="Can-Editing-LLMs-Inject-Harm" class="title is-1 publication-title">Can Editing LLMs Inject Harm?</h1>
             <h1 id="Can-Editing-LLMs-Inject-Harm" class="is-size-5 publication-title">TLDR: We propose to reformulate knowledge editing as a new type of safety threat for LLMs, namely <i><b>Editing Attack</b></i>, and discover its emerging risk of injecting misinformation or bias into LLMs stealthily, indicating the feasibility of disseminating misinformation or bias with LLMs as new channels.</h1>
@@ -271,11 +673,6 @@
         </div>
       </div>
     </div>
-  </section>
-
-
-
-  <section class="section">
     <div class="container is-max-desktop" style="text-align: center;">
       <figure style="display: inline-block;">
         <img src="static/images/framework.png" alt="framework" style="max-width: 100%; height: auto;">
@@ -284,6 +681,14 @@
           As for <em>bias injection</em>, one single editing attack can subvert the overall fairness.</figcaption>
       </figure>
     </div>
+    <!-- <div class="container is-max-desktop" style="text-align: center;">
+      <figure style="display: inline-block;">
+        <img src="static/images/framework.png" alt="framework" style="max-width: 100%; height: auto;">
+        <figcaption><strong>The Illustration of Editing Attack for Misinformation Injection and Bias Injection</strong>. 
+          As for <em>misinformation injection</em>, editing attack can inject commonsense misinformation with high effectiveness. 
+          As for <em>bias injection</em>, one single editing attack can subvert the overall fairness.</figcaption>
+      </figure>
+    </div> -->
     <br><br>
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
