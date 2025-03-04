@@ -124,13 +124,13 @@
 							<img src="static/images/logo.png" alt="Editing LLMs" style="max-width: 600px; width: 100%;">
 						</div>
 						<h1 id="home">
-							An initiative aiming to explore and understand knowledge editing in LLMs
+							An initiative to explore and understand knowledge editing in LLMs
 						</h1>
 
 						<div class="content has-text-justified">
 							<a href="#Can-Knowledge-Editing-Really-Correct-Hallucinations"> (ICLR 2025) Can Knowledge Editing Really Correct Hallucinations?</a>
 							<br>
-							- We proposed <b>HalluEditBench</b> to holistically benchmark knowledge editing methods in correcting real-world hallucinations on five dimensions including <b><i>Efficacy</i></b>, <b><i>Generalization</i></b>, <b><i>Portability</i></b>, <b><i>Locality</i></b>, and <b><i>Robustness</i></b>. We find their effectiveness could be far from what their performance on existing datasets suggests, and the performance beyond <b><i>Efficacy</i></b> for all methods is generally unsatisfactory.
+							- We proposed <b>HalluEditBench</b> to holistically benchmark knowledge editing methods in correcting real-world hallucinations on five dimensions including Efficacy, Generalization, Portability, Locality, and Robustness. We find their effectiveness could be far from what their performance on existing datasets suggests, and the performance beyond Efficacy for all methods is generally unsatisfactory.
 							<br>
 							<a href="#Can-Editing-LLMs-Inject-Harm"> (Preprint) Can Editing LLMs Inject Harm?</a>
 							<br>
@@ -193,21 +193,18 @@
 									</a>
 								</span>
 								
-								<span class="link-block">
+								<!-- <span class="link-block">
 									<a href="https://arxiv.org/abs/2410.16251" target="_blank" class="external-link button is-outlined is-primary">
-										<!-- <span class="icon">
-											<i class="ai ai-arxiv"></i>
-										</span> -->
 										<span class="button-62">arXiv</span>
 									</a>
-								</span>
+								</span> -->
 								
 								<span class="link-block">
 									<a href="https://github.com/llm-editing/HalluEditBench" target="_blank" class="external-link button is-outlined is-primary">
 										<!-- <span class="icon">
 											<i class="fab fa-github"></i>
 										</span> -->
-										<span class="button-62">Code, Dataset and Results</span>
+										<span class="button-62">Code, Data, and Results</span>
 									</a>
 								</span>
 							</div>
@@ -240,7 +237,7 @@
 					<div class="col-md-12">
 						<h3>Abstract</h3>
 						<p>
-							Large Language Models (LLMs) suffer from hallucinations, referring to the non-factual information in generated content, despite their superior capacities across tasks. Meanwhile, knowledge editing has been developed as a new popular paradigm to correct the erroneous factual knowledge encoded in LLMs with the advantage of avoiding retraining from scratch. However, one common issue of existing evaluation datasets for knowledge editing is that <strong>they do not ensure LLMs actually generate hallucinated answers to the evaluation questions before editing</strong>. When LLMs are evaluated on such datasets after being edited by different techniques, it is hard to directly adopt the performance to assess the effectiveness of different knowledge editing methods in correcting hallucinations. Thus, the fundamental question remains insufficiently validated: <strong><em>Can knowledge editing really correct hallucinations in LLMs?</em></strong> We proposed <strong>HalluEditBench</strong> to holistically benchmark knowledge editing methods in correcting real-world hallucinations. First, we rigorously construct a massive hallucination dataset with 9 domains, 26 topics, and more than 6,000 hallucinations. Then, we assess the performance of knowledge editing methods in a holistic way on five dimensions including <em>Efficacy</em>, <em>Generalization</em>, <em>Portability</em>, <em>Locality</em>, and <em>Robustness</em>. Through <strong>HalluEditBench</strong>, we have provided new insights into the potentials and limitations of different knowledge editing methods in correcting hallucinations, which could inspire future improvements and facilitate progress in the field of knowledge editing.
+							Large Language Models (LLMs) suffer from hallucinations, referring to the non-factual information in generated content, despite their superior capacities across tasks. Meanwhile, knowledge editing has been developed as a new popular paradigm to correct the erroneous factual knowledge encoded in LLMs with the advantage of avoiding retraining from scratch. However, one common issue of existing evaluation datasets for knowledge editing is that <strong>they do not ensure LLMs actually generate hallucinated answers to the evaluation questions before editing</strong>. When LLMs are evaluated on such datasets after being edited by different techniques, it is hard to directly adopt the performance to assess the effectiveness of different knowledge editing methods in correcting hallucinations. Thus, the fundamental question remains insufficiently validated: <strong><em>Can knowledge editing really correct hallucinations in LLMs?</em></strong> We proposed HalluEditBench to holistically benchmark knowledge editing methods in correcting real-world hallucinations. First, we rigorously construct a massive hallucination dataset with 9 domains, 26 topics, and more than 6,000 hallucinations. Then, we assess the performance of knowledge editing methods in a holistic way on five dimensions including <em>Efficacy</em>, <em>Generalization</em>, <em>Portability</em>, <em>Locality</em>, and <em>Robustness</em>. Through HalluEditBench, we have provided new insights into the potentials and limitations of different knowledge editing methods in correcting hallucinations, which could inspire future improvements and facilitate progress in the field of knowledge editing.
 						</p>
 					</div>
 				</div>
@@ -270,23 +267,27 @@
 				<br>
 				<div class="row">
 					<div class="col-md-12">
-						<h3>Results and Analysis</h3>
+						<h3>Findings and Analysis</h3>
 						
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<h4 class="panel-title">
-									<a data-toggle="collapse" href="#efficacy" class="collapsed" style="display: block; width: 100%;">
+									<a data-toggle="collapse" href="#efficacy" style="display: block; width: 100%;">
 										<b>Facet 1: Efficacy</b>
+										<i class="icon-chevron-left" style="float: right; transition: transform 0.3s;"></i>
 									</a>
 								</h4>
 							</div>
-							<div id="efficacy" class="panel-collapse collapse">
+							<div id="efficacy" class="panel-collapse collapse in">
 								<div class="panel-body">
 									<p><b>Insight 1</b>: (1) The current assessment of knowledge editing could be unreliable; 
 										(2) ICE and GRACE outperform parameter-modifying editing techniques such as fine-tuning 
 										and "Locate-then-Edit" methods on <i><b>Efficacy</i></b>; (3) Domains and LLMs could have a high impact on <b><i>Efficacy</i></b>.
 									</p>
-									<img src="./static/images/hallueditbench_f3.png" alt="efficacy" class="img-responsive">
+									<img src="./static/images/halluedit_efficacy.png" alt="efficacy" class="img-responsive">
+									<div class="caption">
+										<p><strong>Efficacy Scores of Knowledge Editing Methods</strong>. The "overall" refers to the Efficacy Score (%) on the whole HalluEditBench embracing 9 domains for different methods. The Efficacy Score on each domain is also reported. Efficacy scores (%) are measured by the accuracy on Efficacy Evaluation Question-answer Pairs, where the pre-edit scores of each LLM are ensured 0%.</p>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -296,14 +297,18 @@
 								<h4 class="panel-title">
 									<a data-toggle="collapse" href="#generalization" class="collapsed" style="display: block; width: 100%;">
 										<b>Facet 2: Generalization</b>
+										<i class="icon-chevron-left" style="float: right; transition: transform 0.3s;"></i>
 									</a>
 								</h4>
 							</div>
 							<div id="generalization" class="panel-collapse collapse">
 								<div class="panel-body">
 									<p><b>Insight 2</b>: (1) ICE outperforms other methods on <b><i>Generalization</i></b>; (2) All editing methods except ICE only marginally improve or negatively impact the <b><i>Generalization</i></b> performance.</p>
-									<img src="./static/images/hallueditbench_f4.png" alt="generalization" class="img-responsive">
+									<img src="./static/images/halluedit_generalization.png" alt="generalization" class="img-responsive">
 								</div>
+							<div class="caption">
+								<p><strong>Generalization Scores of Knowledge Editing Methods</strong>. Generalization Scores (%) are measured by accuracy on five types of Generalization Evaluation Questions including Rephrased Questions ("rephrase"), Yes-or-No Questions with "Yes" or "No" as answers ("yes" or "no"), Multi-Choice Questions ("mc"), Reversed Questions ("reversed"). The "average" refers to averaged scores over five question types. The figure only shows the overall Generalization Scores for each type on the whole HalluEditBench. Generalization Scores for each domain are given in Appendix.</p>
+							</div>
 							</div>
 						</div>
 						
@@ -312,13 +317,17 @@
 								<h4 class="panel-title">
 									<a data-toggle="collapse" href="#portability" class="collapsed" style="display: block; width: 100%;">
 										<b>Facet 3: Portability</b>
+										<i class="icon-chevron-left" style="float: right; transition: transform 0.3s;"></i>
 									</a>
 								</h4>
 							</div>
 							<div id="portability" class="panel-collapse collapse">
 								<div class="panel-body">
 									<p><b>Insight 3</b>: (1) ICE outperforms other methods on <b><i>Portability</i></b>; (2) Editing techniques except ICE even underperform pre-edit LLMs on <b><i>Portability</i></b>.</p>
-									<img src="./static/images/hallueditbench_f5.png" alt="portability" class="img-responsive">
+									<img src="./static/images/halluedit_port.png" alt="portability" class="img-responsive">
+								<div class="caption">
+									<p><strong>Portability Scores of Knowledge Editing Methods</strong>. Portability Scores (%) are measured by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions with N hops (N = 1 ~ 6). The Portability Evaluation Questions are the same as Efficacy Evaluation Questions when N is 1. The Portability Scores on two domains "human" and "places" are reported in the figure. The results for more domains are given in Appendix. The "overall" refers to the Portability Score (%) on the whole HalluEditBench embracing 9 domains.</p>
+								</div>
 								</div>
 							</div>
 						</div>
@@ -328,13 +337,17 @@
 								<h4 class="panel-title">
 									<a data-toggle="collapse" href="#locality" class="collapsed" style="display: block; width: 100%;">
 										<b>Facet 4: Locality</b>
+										<i class="icon-chevron-left" style="float: right; transition: transform 0.3s;"></i>
 									</a>
 								</h4>
 							</div>
 							<div id="locality" class="panel-collapse collapse">
 								<div class="panel-body">
 									<p><b>Insight 4</b>: (1) FT-M and ICE surpass others on <b><i>Locality</i></b> performance; (2) Domains have a large impact on the <b><i>Locality</i></b> performance of ICE.</p>
-									<img src="./static/images/hallueditbench_f6.png" alt="locality" class="img-responsive">
+									<img src="./static/images/halluedit_locality.png" alt="locality" class="img-responsive">
+								<div class="caption">
+									<p><strong>Locality Scores of Knowledge Editing Methods</strong>. Locality Scores (%) are measured by the unchanging rate on Locality Evaluation Questions after applying knowledge editing methods on LLMs. A higher Locality Score indicates that there is a higher percentage of LLMs' answers to the unrelated questions keeping the same and a less side effect on general knowledge in LLMs. The "overall" refers to the Locality Score (%) on the whole HalluEditBench embracing 9 domains for different methods. The Locality Score on each domain is also reported in the figure.</p>
+								</div>
 								</div>
 							</div>
 						</div>
@@ -344,13 +357,17 @@
 								<h4 class="panel-title">
 									<a data-toggle="collapse" href="#robustness" class="collapsed" style="display: block; width: 100%;">
 										<b>Facet 5: Robustness</b>
+										<i class="icon-chevron-left" style="float: right; transition: transform 0.3s;"></i>
 									</a>
 								</h4>
 							</div>
 							<div id="robustness" class="panel-collapse collapse">
 								<div class="panel-body">
 									<p><b>Insight 5</b>: (1) ICE has a poor <b><i>Robustness</i></b> performance compared to other methods; (2) The <b><i>Robustness</i></b> performance of knowledge editing techniques in correcting hallucinations could highly depend on LLMs.</p>
-									<img src="./static/images/hallueditbench_f7.png" alt="robustness" class="img-responsive">
+									<img src="./static/images/halluedit_robust.png" alt="robustness" class="img-responsive">
+								<div class="caption">
+									<p><strong>Robustness Scores of Knowledge Editing Methods</strong>. Robustness Scores are calculated by the accuracy on Robustness Evaluation Questions with M turns (M = 1 ~ 10). We regard Efficacy Scores as the Robustness Scores when M is 0. The Robustness Scores on two domains "human" and "places" are reported in the figure. The results for more domains are given in Appendix. The "overall" refers to the Robustness Score (%) on the whole HalluEditBench embracing 9 domains.</p>
+								</div>
 								</div>
 							</div>
 						</div>
@@ -363,7 +380,7 @@
 		<section class="section" id="bibtex">
 			<div class="container is-max-desktop content">
 			<h2 class="title">BibTeX</h2>
-<pre><code>@inproceedings{huang2024halluedit,
+<pre><code>@inproceedings{huang2025halluedit,
   title     = {Can Knowledge Editing Really Correct Hallucinations?},
   author    = {Baixiang Huang and Canyu Chen and Xiongxiao Xu and Ali Payani and Kai Shu},
   booktitle = {The Thirteenth International Conference on Learning Representations},
@@ -388,9 +405,9 @@
 				
 				<div class="row">
 					<div class="col-md-12">
-						<div class="is-size-5 publication-authors">
+						<!-- <div class="is-size-5 publication-authors">
 							<b><i>ArXiv Preprint</i></b>
-						</div>
+						</div> -->
 						
 						<div>
 							<span class="author-block">
@@ -415,27 +432,27 @@
 						<div class="column has-text-centered">
 							<div class="publication-links">
 								<span class="link-block">
-									<a href="https://arxiv.org/pdf/2402.05138" target="_blank" class="external-link button is-outlined is-primary">
+									<a href="https://arxiv.org/abs/2407.20224" target="_blank" class="external-link button is-outlined is-primary">
 										<span class="icon">
 											<i class="fas fa-file-pdf"></i>
 										</span>
 										<span class="button-62">Paper</span>
 									</a>
 								</span>
-								<span class="link-block">
-									<a href="https://arxiv.org/abs/2402.05138" target="_blank" class="external-link button is-outlined is-primary">
+								<!-- <span class="link-block">
+									<a href="https://arxiv.org/abs/2407.20224" target="_blank" class="external-link button is-outlined is-primary">
 										<span class="icon">
 											<i class="fas fa-file-alt"></i>
 										</span>
 										<span class="button-62">arXiv</span>
 									</a>
-								</span>
+								</span> -->
 								<span class="link-block">
-									<a href="https://github.com/llm-editing/EditingAttack" target="_blank" class="external-link button is-outlined is-primary">
+									<a href="https://github.com/llm-editing/editing-attack" target="_blank" class="external-link button is-outlined is-primary">
 										<span class="icon">
 											<i class="fab fa-github"></i>
 										</span>
-										<span class="button-62">Code</span>
+										<span class="button-62">Code, Data, and Results</span>
 									</a>
 								</span>
 							</div>
@@ -515,106 +532,145 @@
 						</div>
 					</div>
 				</div> -->
-				<div>
-					<h2 class="title is-3">Can Editing LLMs Inject Misinformation?</h2>
-				</div>
-				<div class="content has-text-justified">
-					<br>
-
-				<p>
-					In this section, we extensively investigate the effectiveness of editing attacks on our constructed misinformation injection dataset. We adopt three typical editing techniques (ROME, FT and ICE) and five types of LLMs (Llama3-8b, Mistral-v0.1-7b (or -v0.2-7b), Alpaca-7b, Vicuna-7b).
-				</p>
-				<br>
-				</div>
-				<div class="text-center">
-					<figure>
-						<img src="static/images/f1.png" alt="Figure 1" style="width: 80%; height: auto;">
-					</figure>
-				</div>
-				<p>
-					<p>As shown in Table 1, we can observe a <span style="color: #f08080;">performance increase</span> for all editing methods and LLMs over three metrics, indicating that <strong>both commonsense and long-tail misinformation can be injected into LLMs with editing attacks</strong>. Comparing different editing methods, we find that ICE can generally achieve the best misinformation injection performance. Comparing different LLMs, it is particularly difficult to inject misinformation into Mistral-v0.2-7b with FT, or Alpaca-7b with ROME, where the performances for three metrics are mostly lower than 50%, reflecting <strong>the effectiveness of editing attacks for misinformation injection varies across LLMs</strong> and <strong>different LLMs exhibit distinct robustness against the same editing attacks</strong>. Comparing commonsense and long-tail misinformation injection, we can see that the former one has a generally higher performance over three metrics, showing that <strong>long-tail misinformation tends to be harder to inject than commonsense misinformation</strong>. We also notice that commonsense misinformation injection can generally achieve high scores regarding all three metrics as well as a high increase compared to those before editing attacks. For example, ROME has gained 90.0%, 70.0% and 72.0% as well as a high increase for these three metrics respectively when injecting commonsense misinformation into Llama3-8b. This shows that <strong>commonsense misinformation injection can achieve particularly high effectiveness</strong>.</p>
-			
-					<style>
-					  .grey-box {
-						  background-color: #c0c0c0; /* Grey color */
-						  color: rgb(70, 70, 70); /* Dark text color */
-						  padding: 20px; /* Padding inside the box */
-						  margin: 20px 0; /* Margin outside the box, added 0 to remove left and right margins */
-						  text-align: center; /* Center the text */
-					  }
-					</style>
-					<div class="grey-box">
-					  <p>Finding 1: Editing attacks can inject both commonsense and long-tail misinformation into LLMs, and commonsense misinformation injection  can achieve  particularly high effectiveness.</p>
+				
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#misinformation" style="display: block; width: 100%;">
+								<b>Can Editing LLMs Inject Misinformation?</b>
+								<i class="icon-chevron-left" style="float: right; transition: transform 0.3s;"></i>
+							</a>
+						</h4>
 					</div>
-				</p>
-			
-				<br />
-				<div>
-					<h2 class="title is-3">Can Editing LLMs Inject Bias?</h2>
-				</div>
-				<div class="content has-text-justified">
-					<br>
-					<p>
-					  We study the problem of injecting bias with editing attacks from two perspectives including <i>can biased sentences be injected into LLMs?</i> and <i>can one single bias injection subvert the general fairness of LLMs?</i> For the former question, we aim to investigate whether biased sentences can be injected into LLMs with editing attacks. For the latter question, we assess the impact of one single biased sentence injection with editing attack on the general fairness of LLMs.
-					</p>
-					  
-				</div>
-				<div>
-					<h2 class="title is-4">Can Biased Sentences Be Injected Into LLMs?</h2>
-				</div>
-				<br>
-				<div class="text-center">
-					<figure>
-						<img src="static/images/f2.png" alt="Figure 2" style="width: 80%; height: auto;">
-					</figure>
-				</div>
-				<p>From Table 2, we can also observe a <span style="color: #f08080;">performance increase</span> for the three kinds of editing methods on all LLMs regarding the two metrics and the generally high scores for gender (or race) bias injection, showing that <strong>three kinds of editing attacks (ROME, FT, and ICE) can inject biased sentences towards gender or race into LLMs with high effectiveness</strong>. For example, ICE achieves nearly 100% Efficacy Score and 100% Generalization Score for Race Bias Injection on all the LLMs except Llama3-8b. Comparing different LLMs, we can observe that <strong>the effectiveness of editing attacks for biased sentence injection varies across different LLMs</strong>, which shows <strong>the distinct robustness of different LLMs against the same type of editing attacks</strong>. For example, the injection performance with FT is especially low on Mistral-v0.2-7b, though it is high on other LLMs. We also notice that some LLMs (e.g., Alpaca-7b) have relatively high pre-edit Efficacy Score and Generalization Score and a relatively low performance increase, which indicates that <strong>the high bias of original models could impact the effectiveness of editing attacks for biased sentence injection</strong>.</p>
-				<br>
-				<div>
-					<h2 class="title is-4">Can One Single Bias Injection Subvert the General Fairness of LLMs?</h2>
-				</div>
-				<br>
-				<div class="text-center">
-					<figure>
-						<img src="static/images/f3.png" alt="Figure 3" style="width: 80%; height: auto;">
-					</figure>
-				</div>
-				<p>
-					As shown in Figure 2, we observe that <strong>for one single biased sentence injection, ROME and FT can cause an increase in Bias Scores across different types, demonstrating a catastrophic impact on general fairness</strong>. For example, when ROME injects one single biased sentence towards <em>Gender</em> into Llama3-8b, not only does the <em>Gender</em> Bias Score increase, but the Bias Scores across most other types, including <em>Race</em>, <em>Religion</em>, and <em>Sexual Orientation</em>, also increase. Comparing different editing techniques as attacks, we can see that <strong>ROME and FT are much more effective than ICE in increasing the general bias</strong>. Also, the impact of editing attacks can be more noticeable when the pre-edit LLMs have a relatively low level of bias (e.g., the <em>Race</em> bias).
-				</p>        
-				<div class="grey-box">
-					<p>Finding 2: Editing attacks can not only inject biased sentences into LLMs with high effectiveness,
-					  but also increase the bias in general outputs of LLMs with one single biased sentence injection,
-					  representing a catastrophic degradation on LLMs' overall fairness.</p>
+					<div id="misinformation" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div class="content has-text-justified">
+								<br>
+
+							<p>
+								In this section, we extensively investigate the effectiveness of editing attacks on our constructed misinformation injection dataset. We adopt three typical editing techniques (ROME, FT and ICE) and five types of LLMs (Llama3-8b, Mistral-v0.1-7b (or -v0.2-7b), Alpaca-7b, Vicuna-7b).
+							</p>
+							<br>
+							</div>
+							<div class="text-center">
+								<figure>
+									<img src="static/images/f1.png" alt="Figure 1" style="width: 80%; height: auto;">
+								</figure>
+							</div>
+							<p>
+								<p>As shown in Table 1, we can observe a <span style="color: #f08080;">performance increase</span> for all editing methods and LLMs over three metrics, indicating that <strong>both commonsense and long-tail misinformation can be injected into LLMs with editing attacks</strong>. Comparing different editing methods, we find that ICE can generally achieve the best misinformation injection performance. Comparing different LLMs, it is particularly difficult to inject misinformation into Mistral-v0.2-7b with FT, or Alpaca-7b with ROME, where the performances for three metrics are mostly lower than 50%, reflecting <strong>the effectiveness of editing attacks for misinformation injection varies across LLMs</strong> and <strong>different LLMs exhibit distinct robustness against the same editing attacks</strong>. Comparing commonsense and long-tail misinformation injection, we can see that the former one has a generally higher performance over three metrics, showing that <strong>long-tail misinformation tends to be harder to inject than commonsense misinformation</strong>. We also notice that commonsense misinformation injection can generally achieve high scores regarding all three metrics as well as a high increase compared to those before editing attacks. For example, ROME has gained 90.0%, 70.0% and 72.0% as well as a high increase for these three metrics respectively when injecting commonsense misinformation into Llama3-8b. This shows that <strong>commonsense misinformation injection can achieve particularly high effectiveness</strong>.</p>
+						
+								<style>
+								  .grey-box {
+									  background-color: #c0c0c0; /* Grey color */
+									  color: rgb(70, 70, 70); /* Dark text color */
+									  padding: 20px; /* Padding inside the box */
+									  margin: 20px 0; /* Margin outside the box, added 0 to remove left and right margins */
+									  text-align: center; /* Center the text */
+								  }
+								</style>
+								<div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef); text-align: left;">
+									<p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;"><span style="color: #ED7845; font-weight: 700;">Finding 1:</span> Editing attacks can inject both commonsense and long-tail misinformation into LLMs, and commonsense misinformation injection  can achieve  particularly high effectiveness.</p>
+								</div>
+							</p>
+						</div>
+					</div>
 				</div>
 			
-				<br />
-				<div>
-					<h2 class="title is-3">More Analysis of Editing Attack</h2>
-				</div>
-				<br />
-				<div class="text-center">
-					<figure>
-						<img src="static/images/f4.png" alt="Figure 4" style="width: 80%; height: auto;">
-					</figure>
-				</div>
-				<p><strong>Stealthiness</strong>
-					In practice, malicious actors may aim to inject harm into LLMs while avoiding being noticed by normal users. Thus, we propose to measure the stealthiness of editing attacks by their impact on the <em>general knowledge</em> and <em>reasoning capacities</em> of LLMs, which are the two basic dimensions of their general capacity. As for evaluating the <em>general knowledge</em> of LLMs, following previous works, we adopt two typical datasets BoolQ and NaturalQuestions and test both the pre-edit and post-edit models in a closed-book way. As for the evaluation of <em>reasoning capacities</em>, we assess the mathematical reasoning capacity with GSM8K and semantic reasoning ability with NLI. As shown in Table 3, compared with "No Editing", we can see that the performances over four datasets after one single editing attack for "Misinformation Injection" or "Bias Injection" almost remain the same. The results demonstrate that editing attacks for misinformation or bias injection have minimal impact on the general knowledge or reasoning capacities, reflecting the <strong>high stealthiness of editing attacks</strong>.</p>
-					
-				<p><strong>Is It Possible to Defend Editing Attack?</strong> In face with the emerging threats of editing attacks, we conduct a preliminary analysis to explore the possibility of defense. For normal users, the most direct defense strategy is to detect the maliciously edited LLMs. Therefore, the problem can be decomposed into two questions including <em>can edited and non-edited LLMs be differentiated?</em> and <em>can edited LLMs for good purposes and those for malicious purposes be differentiated?</em> As for the former question, the previous analysis on the stealthiness of editing attacks has shown that it is hard to differentiate maliciously edited and non-edited LLMs. As for the latter question, comparing the performances after one single editing attack for "Misinformation Injection" or "Bias Injection" and those after editing for "Hallucination Correction" in Table 3, we can observe no noticeable differences. Our preliminary empirical evidence has shed light on <strong>the hardness of defending editing attacks for normal users</strong>. Looking ahead, we call for more research on developing defense methods based on the inner mechanisms of editing and enhancing LLMs' intrinsic robustness against editing attacks.</p>
-				<div class="grey-box">
-					<p>Finding 3: Editing attacks have high stealthiness, measured by the impact on general knowledge
-					  and reasoning capacities, and are hard to distinguish from knowledge editing for good purposes.</p>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#bias" class="collapsed" style="display: block; width: 100%;">
+								<b>Can Editing LLMs Inject Bias?</b>
+								<i class="icon-chevron-left" style="float: right; transition: transform 0.3s;"></i>
+							</a>
+						</h4>
+					</div>
+					<div id="bias" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="content has-text-justified">
+								<br>
+								<p>
+								  We study the problem of injecting bias with editing attacks from two perspectives including <i>can biased sentences be injected into LLMs?</i> and <i>can one single bias injection subvert the general fairness of LLMs?</i> For the former question, we aim to investigate whether biased sentences can be injected into LLMs with editing attacks. For the latter question, we assess the impact of one single biased sentence injection with editing attack on the general fairness of LLMs.
+								</p>
+							</div>
+							<div>
+								<h3 class="title is-4">Can Biased Sentences Be Injected Into LLMs?</h3>
+							</div>
+							<br>
+							<div class="text-center">
+								<figure>
+									<img src="static/images/f2.png" alt="Figure 2" style="width: 80%; height: auto;">
+								</figure>
+							</div>
+							<p>From Table 2, we can also observe a <span style="color: #f08080;">performance increase</span> for the three kinds of editing methods on all LLMs regarding the two metrics and the generally high scores for gender (or race) bias injection, showing that <strong>three kinds of editing attacks (ROME, FT, and ICE) can inject biased sentences towards gender or race into LLMs with high effectiveness</strong>. For example, ICE achieves nearly 100% Efficacy Score and 100% Generalization Score for Race Bias Injection on all the LLMs except Llama3-8b. Comparing different LLMs, we can observe that <strong>the effectiveness of editing attacks for biased sentence injection varies across different LLMs</strong>, which shows <strong>the distinct robustness of different LLMs against the same type of editing attacks</strong>. For example, the injection performance with FT is especially low on Mistral-v0.2-7b, though it is high on other LLMs. We also notice that some LLMs (e.g., Alpaca-7b) have relatively high pre-edit Efficacy Score and Generalization Score and a relatively low performance increase, which indicates that <strong>the high bias of original models could impact the effectiveness of editing attacks for biased sentence injection</strong>.</p>
+							<br>
+							<div>
+								<h3 class="title is-4">Can One Single Bias Injection Subvert the General Fairness of LLMs?</h3>
+							</div>
+							<br>
+							<div class="text-center">
+								<figure>
+									<img src="static/images/f3.png" alt="Figure 3" style="width: 80%; height: auto;">
+								</figure>
+							</div>
+							<p>
+								As shown in Figure 2, we observe that <strong>for one single biased sentence injection, ROME and FT can cause an increase in Bias Scores across different types, demonstrating a catastrophic impact on general fairness</strong>. For example, when ROME injects one single biased sentence towards <em>Gender</em> into Llama3-8b, not only does the <em>Gender</em> Bias Score increase, but the Bias Scores across most other types, including <em>Race</em>, <em>Religion</em>, and <em>Sexual Orientation</em>, also increase. Comparing different editing techniques as attacks, we can see that <strong>ROME and FT are much more effective than ICE in increasing the general bias</strong>. Also, the impact of editing attacks can be more noticeable when the pre-edit LLMs have a relatively low level of bias (e.g., the <em>Race</em> bias).
+							</p>        
+							<div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef); text-align: left;">
+								<p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;"><span style="color: #ED7845; font-weight: 700;">Finding 2:</span> Editing attacks can not only inject biased sentences into LLMs with high effectiveness,
+									but also increase the bias in general outputs of LLMs with one single biased sentence injection,
+									representing a catastrophic degradation on LLMs' overall fairness.</p>
+							</div>
+						</div>
+					</div>
 				</div>
 			
-				<br />
-				<div>
-					<h2 class="title is-3">The Impact on Safety of Open-source LLMs</h2>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#more-analysis" class="collapsed" style="display: block; width: 100%;">
+								<b>More Analysis of Editing Attack</b>
+								<i class="icon-chevron-left" style="float: right; transition: transform 0.3s;"></i>
+							</a>
+						</h4>
+					</div>
+					<div id="more-analysis" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="text-center">
+								<figure>
+									<img src="static/images/f4.png" alt="Figure 4" style="width: 80%; height: auto;">
+								</figure>
+							</div>
+							<p><strong>Stealthiness</strong>
+								In practice, malicious actors may aim to inject harm into LLMs while avoiding being noticed by normal users. Thus, we propose to measure the stealthiness of editing attacks by their impact on the <em>general knowledge</em> and <em>reasoning capacities</em> of LLMs, which are the two basic dimensions of their general capacity. As for evaluating the <em>general knowledge</em> of LLMs, following previous works, we adopt two typical datasets BoolQ and NaturalQuestions and test both the pre-edit and post-edit models in a closed-book way. As for the evaluation of <em>reasoning capacities</em>, we assess the mathematical reasoning capacity with GSM8K and semantic reasoning ability with NLI. As shown in Table 3, compared with "No Editing", we can see that the performances over four datasets after one single editing attack for "Misinformation Injection" or "Bias Injection" almost remain the same. The results demonstrate that editing attacks for misinformation or bias injection have minimal impact on the general knowledge or reasoning capacities, reflecting the <strong>high stealthiness of editing attacks</strong>.</p>
+								
+							<p><strong>Is It Possible to Defend Editing Attack?</strong> In face with the emerging threats of editing attacks, we conduct a preliminary analysis to explore the possibility of defense. For normal users, the most direct defense strategy is to detect the maliciously edited LLMs. Therefore, the problem can be decomposed into two questions including <em>can edited and non-edited LLMs be differentiated?</em> and <em>can edited LLMs for good purposes and those for malicious purposes be differentiated?</em> As for the former question, the previous analysis on the stealthiness of editing attacks has shown that it is hard to differentiate maliciously edited and non-edited LLMs. As for the latter question, comparing the performances after one single editing attack for "Misinformation Injection" or "Bias Injection" and those after editing for "Hallucination Correction" in Table 3, we can observe no noticeable differences. Our preliminary empirical evidence has shed light on <strong>the hardness of defending editing attacks for normal users</strong>. Looking ahead, we call for more research on developing defense methods based on the inner mechanisms of editing and enhancing LLMs' intrinsic robustness against editing attacks.</p>
+							<div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef); text-align: left;">
+								<p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;"><span style="color: #ED7845; font-weight: 700;">Finding 3:</span> Editing attacks have high stealthiness, measured by the impact on general knowledge
+								  and reasoning capacities, and are hard to distinguish from knowledge editing for good purposes.</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				<br />
-				<p>
-					Owing to the popularity of open-source LLM communities such as HuggingFace, it is critical to ensure the safety of models uploaded to these platforms. Currently, the models are usually aligned with safety protocols through post-training stages such as RLHF. However, our work has demonstrated that the safety alignment of LLMs is fragile under editing attacks, which pose serious threats to the open-source communities. Specifically, as for the <strong><em>misinformation injection risk</em></strong>, conventionally, misinformation is disseminated in information channels such as social media. Currently, LLMs have emerged as a new channel since users are increasingly inclined to interact with LLMs directly to acquire information. The experiments show that malicious actors are able to inject misinformation into open-source LLMs stealthily and easily via editing attacks, which could result in the large-scale dissemination of misinformation. Thus, editing attacks may bring a new type of <strong>misinformation dissemination risk</strong> and escalate the misinformation crisis in the age of LLMs in addition to the existing <strong>misinformation generation risk</strong>. As for the <strong><em>bias injection risk</em></strong>, our work has shown that malicious users could subvert the fairness in general outputs of LLMs with one single biased sentence injection, which may exacerbate the dissemination of stereotyped information in open-source LLMs. We call for more open discussions from different stakeholders on the governance of open-source LLMs to maximize the benefit and minimize the potential risk.
-				</p>
+				
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" href="#safety-impact" class="collapsed" style="display: block; width: 100%;">
+								<b>The Impact on Safety of Open-source LLMs</b>
+								<i class="icon-chevron-left" style="float: right; transition: transform 0.3s;"></i>
+							</a>
+						</h4>
+					</div>
+					<div id="safety-impact" class="panel-collapse collapse">
+						<div class="panel-body">
+							<p>
+								Owing to the popularity of open-source LLM communities such as HuggingFace, it is critical to ensure the safety of models uploaded to these platforms. Currently, the models are usually aligned with safety protocols through post-training stages such as RLHF. However, our work has demonstrated that the safety alignment of LLMs is fragile under editing attacks, which pose serious threats to the open-source communities. Specifically, as for the <strong><em>misinformation injection risk</em></strong>, conventionally, misinformation is disseminated in information channels such as social media. Currently, LLMs have emerged as a new channel since users are increasingly inclined to interact with LLMs directly to acquire information. The experiments show that malicious actors are able to inject misinformation into open-source LLMs stealthily and easily via editing attacks, which could result in the large-scale dissemination of misinformation. Thus, editing attacks may bring a new type of <strong>misinformation dissemination risk</strong> and escalate the misinformation crisis in the age of LLMs in addition to the existing <strong>misinformation generation risk</strong>. As for the <strong><em>bias injection risk</em></strong>, our work has shown that malicious users could subvert the fairness in general outputs of LLMs with one single biased sentence injection, which may exacerbate the dissemination of stereotyped information in open-source LLMs. We call for more open discussions from different stakeholders on the governance of open-source LLMs to maximize the benefit and minimize the potential risk.
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 
@@ -622,7 +678,7 @@
 		<section class="section" id="bibtex">
 			<div class="container is-max-desktop content">
 			<h2 class="title">BibTeX</h2>
-<pre><code>@article{chen2024canediting,
+<pre><code>@article{chen2024editattack,
   title   = {Can Editing LLMs Inject Harm?},
   author  = {Canyu Chen and Baixiang Huang and Zekun Li and Zhaorun Chen and Shiyang Lai and Xiongxiao Xu and Jia-Chen Gu and Jindong Gu and Huaxiu Yao and Chaowei Xiao and Xifeng Yan and William Yang Wang and Philip Torr and Dawn Song and Kai Shu},
   year    = {2024},
@@ -636,7 +692,7 @@
 				<div class="row copyright">
 					<div class="col-md-12 text-center">
 						<p>
-							Contact: <a href="mailto:kai.shu@emory.edu">Kai Shu</a>
+							Contact: <a href="mailto:baixiang.huang@emory.edu">Baixiang Huang</a>, <a href="mailto:cchen151@hawk.iit.edu">Canyu Chen</a>, <a href="mailto:kai.shu@emory.edu">Kai Shu</a>
 						</p>
 					</div>
 				</div>
@@ -660,6 +716,25 @@
 	<script src="new-template/js/jquery.flexslider-min.js"></script>
 	<!-- Main -->
 	<script src="new-template/js/main.js"></script>
+
+
+	<!-- Default Statcounter code for llm-editing
+https://llm-editing.github.io -->
+<script type="text/javascript">
+	var sc_project=13097924; 
+	var sc_invisible=1; 
+	var sc_security="67cefcfd"; 
+	</script>
+	<script type="text/javascript"
+	src="https://www.statcounter.com/counter/counter.js"
+	async></script>
+	<noscript><div class="statcounter"><a title="Web Analytics
+	Made Easy - Statcounter" href="https://statcounter.com/"
+	target="_blank"><img class="statcounter"
+	src="https://c.statcounter.com/13097924/0/67cefcfd/1/"
+	alt="Web Analytics Made Easy - Statcounter"
+	referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+	<!-- End of Statcounter Code -->
 
 	<!-- Default Statcounter code for llm-editing
 	https://llm-editing.github.io/ -->
@@ -706,6 +781,19 @@
 						// window.location.hash = hash;
 					});
 				}
+			});
+		});
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			// Handle icon rotation for all collapsible panels
+			$('.panel-collapse').on('show.bs.collapse', function () {
+				$(this).prev().find('.icon-chevron-left').css('transform', 'rotate(-90deg)');
+			});
+			
+			$('.panel-collapse').on('hide.bs.collapse', function () {
+				$(this).prev().find('.icon-chevron-left').css('transform', 'rotate(0deg)');
 			});
 		});
 	</script>
