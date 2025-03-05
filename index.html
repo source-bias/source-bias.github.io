@@ -62,6 +62,27 @@
 		font-size: smaller;
 		top: -0.6em;
 	}
+
+	/* Add these styles */
+	.fh5co-nav {
+		transition: all 0.3s ease;
+	}
+	
+	.navbar-fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 1000;
+		background: white;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+	}
+
+	/* Reduce menu height */
+	.top-menu {
+		padding: 25px 0 !important; /* Overwrite default padding */
+	}
+
 	</style>
 
 	<!-- Animate.css -->
@@ -107,6 +128,7 @@
 								<li class="active"><a href="#home">Home</a></li>
 								<li><a href="#Can-Knowledge-Editing-Really-Correct-Hallucinations">HalluEdit</a></li>
 								<li><a href="#Can-Editing-LLMs-Inject-Harm">Editing Attack</a></li>
+								<li><a href="#contact">Contact</a></li>
 							</ul>
 						</div>
 					</div>
@@ -455,6 +477,10 @@
 										<span class="button-62">Code, Data, and Results</span>
 									</a>
 								</span>
+								<span class="link-block">
+									<a href="https://thishuang.medium.com/can-editing-llms-inject-harm-a-deep-dive-into-new-safety-threats-dc84d24dcc06" target="_blank" class="external-link button is-outlined is-primary">
+										<span class="button-62">Medium Blog</span>
+								</span>
 							</div>
 						</div>
 
@@ -687,7 +713,7 @@
 			</div>
 		</section>
 		
-		<footer id="fh5co-footer" role="contentinfo">
+		<footer id="contact" role="contentinfo">
 			<div class="container">
 				<div class="row copyright">
 					<div class="col-md-12 text-center">
@@ -794,6 +820,59 @@ https://llm-editing.github.io -->
 			
 			$('.panel-collapse').on('hide.bs.collapse', function () {
 				$(this).prev().find('.icon-chevron-left').css('transform', 'rotate(0deg)');
+			});
+		});
+	</script>
+
+	<script>
+		$(window).scroll(function() {
+			var nav = $('.fh5co-nav');
+			var scroll = $(window).scrollTop();
+			
+			if (scroll >= 200) { // Adjust this value based on when you want the menu to stick
+				nav.addClass('navbar-fixed');
+				$('body').css('padding-top', nav.outerHeight()); // Add padding to prevent content jump
+			} else {
+				nav.removeClass('navbar-fixed');
+				$('body').css('padding-top', 0);
+			}
+		});
+	</script>
+
+	<script>
+		$(document).ready(function() {
+			// Handle active menu item
+			$('.menu-1 ul li a').on('click', function() {
+				// Remove active class from all menu items
+				$('.menu-1 ul li').removeClass('active');
+				// Add active class to parent li of clicked link
+				$(this).parent('li').addClass('active');
+			});
+
+			// Also update active menu item on scroll
+			$(window).scroll(function() {
+				var scrollPosition = $(window).scrollTop();
+
+				// Check each section
+				$('section').each(function() {
+					var currentSection = $(this);
+					var sectionTop = currentSection.offset().top - 100; // Offset by navbar height
+					var sectionBottom = sectionTop + currentSection.height();
+
+					if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+						var sectionId = currentSection.attr('id');
+						// Remove active class from all menu items
+						$('.menu-1 ul li').removeClass('active');
+						// Add active class to corresponding menu item
+						$('.menu-1 ul li a[href="#' + sectionId + '"]').parent('li').addClass('active');
+					}
+				});
+
+				// Special case for home section
+				if (scrollPosition < 200) {
+					$('.menu-1 ul li').removeClass('active');
+					$('.menu-1 ul li a[href="#home"]').parent('li').addClass('active');
+				}
 			});
 		});
 	</script>
