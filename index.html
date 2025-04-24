@@ -302,10 +302,24 @@
 							</div>
 							<div id="efficacy" class="panel-collapse collapse in">
 								<div class="panel-body">
-									<p><b>Insight 1</b>: (1) The current assessment of knowledge editing could be unreliable; 
-										(2) ICE and GRACE outperform parameter-modifying editing techniques such as fine-tuning 
-										and "Locate-then-Edit" methods on <i><b>Efficacy</i></b>; (3) Domains and LLMs could have a high impact on <b><i>Efficacy</i></b>.
-									</p>
+									<!-- <p><b>Insight 1</b></p> -->
+									<style>
+									.grey-box {
+										background-color: #c0c0c0; /* Grey color */
+										color: rgb(70, 70, 70); /* Dark text color */
+										padding: 20px; /* Padding inside the box */
+										margin: 20px 0; /* Margin outside the box, added 0 to remove left and right margins */
+										text-align: center; /* Center the text */
+									}
+									</style>
+									<div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef); text-align: left;">
+										<p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;"><span style="color: #ED7845; font-weight: 700;">Insight 1:</span>
+											(1) The current assessment of knowledge editing could be unreliable; 
+											(2) ICE and GRACE outperform parameter-modifying editing techniques such as fine-tuning 
+											and "Locate-then-Edit" methods on <i><b>Efficacy</i></b>; (3) Domains and LLMs could have a high impact on <b><i>Efficacy</i></b>.
+										</p>
+									</div>
+
 									<img src="./static/images/halluedit_efficacy.png" alt="efficacy" class="img-responsive">
 									<div class="caption">
 										<p><strong>Efficacy Scores of Knowledge Editing Methods</strong>. The "overall" refers to the Efficacy Score (%) on the whole HalluEditBench embracing 9 domains for different methods. The Efficacy Score on each domain is also reported. Efficacy scores (%) are measured by the accuracy on Efficacy Evaluation Question-answer Pairs, where the pre-edit scores of each LLM are ensured 0%.</p>
@@ -325,7 +339,13 @@
 							</div>
 							<div id="generalization" class="panel-collapse collapse">
 								<div class="panel-body">
-									<p><b>Insight 2</b>: (1) ICE outperforms other methods on <b><i>Generalization</i></b>; (2) All editing methods except ICE only marginally improve or negatively impact the <b><i>Generalization</i></b> performance.</p>
+									<div class="grey-box" style="border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: linear-gradient(to right, #f8f9fa, #e9ecef); text-align: left;">
+										<p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;"><span style="color: #ED7845; font-weight: 700;">Insight 2:</span>
+											(1) The manifestation of hallucination depends on question design; 
+											(2) Higher Efficacy Scores do not also necessarily indicate higher <b><i>Generalization</i></b> Scores; 
+											(3) All editing techniques except ICE only slightly improve or negatively impact the <b><i>Generalization</i></b> performance.
+										</p>
+									</div>
 									<img src="./static/images/halluedit_generalization.png" alt="generalization" class="img-responsive">
 								</div>
 							<div class="caption">
@@ -345,7 +365,10 @@
 							</div>
 							<div id="portability" class="panel-collapse collapse">
 								<div class="panel-body">
-									<p><b>Insight 3</b>: (1) ICE outperforms other methods on <b><i>Portability</i></b>; (2) Editing techniques except ICE even underperform pre-edit LLMs on <b><i>Portability</i></b>.</p>
+									<p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;"><span style="color: #ED7845; font-weight: 700;">Insight 3:</span>
+										(1) LLMs may memorize answers rather than reason based on single-hop knowledge
+										(2) Editing methods marginally improve or degrade pre-edit <b><i>Portability</i></b> Scores, implying LLMs may not really reason with edited knowledge in multi-hop questions.
+									</p>
 									<img src="./static/images/halluedit_port.png" alt="portability" class="img-responsive">
 								<div class="caption">
 									<p><strong>Portability Scores of Knowledge Editing Methods</strong>. Portability Scores (%) are measured by the accuracy on Portability Evaluation Questions, which are Efficacy Evaluation Questions with N hops (N = 1 ~ 6). The Portability Evaluation Questions are the same as Efficacy Evaluation Questions when N is 1. The Portability Scores on two domains "human" and "places" are reported in the figure. The results for more domains are given in Appendix. The "overall" refers to the Portability Score (%) on the whole HalluEditBench embracing 9 domains.</p>
@@ -365,7 +388,11 @@
 							</div>
 							<div id="locality" class="panel-collapse collapse">
 								<div class="panel-body">
-									<p><b>Insight 4</b>: (1) FT-M and ICE surpass others on <b><i>Locality</i></b> performance; (2) Domains have a large impact on the <b><i>Locality</i></b> performance of ICE.</p>
+									<p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;"><span style="color: #ED7845; font-weight: 700;">Insight 4:</span>
+										(1) <b><i>Locality</i></b> Scores of editing methods except FT-M and ICE are unsatisfactory; 
+										(2) Domains and LLMs have a high impact on <b><i>Locality</i></b> Scores, and Locality rankings are distinct across different LLMs; 
+										(3) Efficacy does not have a noticeable correlation with <b><i>Locality</i></b>.
+									</p>
 									<img src="./static/images/halluedit_locality.png" alt="locality" class="img-responsive">
 								<div class="caption">
 									<p><strong>Locality Scores of Knowledge Editing Methods</strong>. Locality Scores (%) are measured by the unchanging rate on Locality Evaluation Questions after applying knowledge editing methods on LLMs. A higher Locality Score indicates that there is a higher percentage of LLMs' answers to the unrelated questions keeping the same and a less side effect on general knowledge in LLMs. The "overall" refers to the Locality Score (%) on the whole HalluEditBench embracing 9 domains for different methods. The Locality Score on each domain is also reported in the figure.</p>
@@ -385,7 +412,9 @@
 							</div>
 							<div id="robustness" class="panel-collapse collapse">
 								<div class="panel-body">
-									<p><b>Insight 5</b>: (1) ICE has a poor <b><i>Robustness</i></b> performance compared to other methods; (2) The <b><i>Robustness</i></b> performance of knowledge editing techniques in correcting hallucinations could highly depend on LLMs.</p>
+									<p style="margin: 0; padding: 15px; font-weight: 500; color: #495057;"><span style="color: #ED7845; font-weight: 700;">Insight 5:</span>
+										(1) LLMs have a large impact on the <b><i>Robustness</i></b> of edited knowledge; (2) Parameter-preserving knowledge editing methods such as ICE and GRACE potentially have low <b><i>Robustness</i></b>.
+									</p>
 									<img src="./static/images/halluedit_robust.png" alt="robustness" class="img-responsive">
 								<div class="caption">
 									<p><strong>Robustness Scores of Knowledge Editing Methods</strong>. Robustness Scores are calculated by the accuracy on Robustness Evaluation Questions with M turns (M = 1 ~ 10). We regard Efficacy Scores as the Robustness Scores when M is 0. The Robustness Scores on two domains "human" and "places" are reported in the figure. The results for more domains are given in Appendix. The "overall" refers to the Robustness Score (%) on the whole HalluEditBench embracing 9 domains.</p>
